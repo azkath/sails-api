@@ -13,6 +13,12 @@ module.exports.routes = {
   'POST /api/v1/signUp': 'user/signup',
   'POST /api/v1/signOut': 'user/signout',
 
-  'GET /api/v1/check': 'AuthController.checkToken'
+  'GET /api/v1/check': 'AuthController.checkToken',
+
+  'POST /api/v1/game/create': 'game/create',
+  'POST /api/v1/game/update': 'game/update',
+  'GET /api/v1/game/list': 'game/list',
+  'GET /api/v1/game/getById': 'game/detail',
+  'GET /api/v1/game/delete': 'game/delete',
 
 };

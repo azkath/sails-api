@@ -35,9 +35,9 @@ module.exports = {
   },
   fn: function (inputs, exits) {
     var config = {
-      JWK_URI: 'https://astrapointb2cpoc.b2clogin.com/astrapointb2cpoc.onmicrosoft.com/b2c_1_signin/discovery/v2.0/keys',
-      ISS: 'https://astrapointb2cpoc.b2clogin.com/7fb40275-09e4-47e7-afbb-279161ae4030/v2.0/',
-      AUD: 'c87e12f7-67e8-46bd-a9ea-74edc22c34a3'
+      JWK_URI: `https://${process.env.AZURE_B2C_TENANT_NAME}.b2clogin.com/${process.env.AZURE_B2C_TENANT_DOMAIN}/${process.env.AZURE_B2C_POLICY}/discovery/v2.0/keys`,
+      ISS: `https://${process.env.AZURE_B2C_TENANT_NAME}.b2clogin.com/${process.env.AZURE_B2C_TENANT_ID}/v2.0/`,
+      AUD: `${process.env.AZURE_B2C_CLIENT_ID}`
     };
 
     azureJWT.verify(inputs.accessToken, config).then(response => {

@@ -49,6 +49,9 @@ try {
   return;
 }//-•
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 
 // Start server
 sails.lift(rc('sails'));

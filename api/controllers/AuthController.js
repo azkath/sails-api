@@ -7,14 +7,10 @@
 
 module.exports = {
   checkToken : async function(req, res){
-    // var resNotFound = await sails.helpers.formatResponse('User Not Found', 'FAILED', {}, 404);
     try {
       var data = req.allParams();
       var user = await sails.helpers.getUserByToken(data.accessToken);
       var isVerify = await sails.helpers.verifyToken(user.data.accessToken);
-      // var resSuccess = await sails.helpers.formatResponse(isVerify.data.message.message,'SUCCESS', user.data, 200);
-      // var resExpired = await sails.helpers.formatResponse(isVerify.data.message.message, 'FAILED', user.data, 400);
-      console.log(333, isVerify);
       if(isVerify.data.status === 'success'){
         return res.myResponse({
           body: user.data,
